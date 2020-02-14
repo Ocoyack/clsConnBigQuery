@@ -6,14 +6,14 @@ import urllib2
 def make_conn(q, url):
     objConn = DataBaseBigQuery('config')
 
-    q.put( objConn.get_data_bq )
+    q.put( objConn.get_data_bq( qry )
 
 theurls = ["SELECT", "INSERT"]
 
 q = Queue.Queue()
 
-for u in theurls:
-    t = threading.Thread(target=get_url, args = (q,u))
+for qry in lstQueries:
+    t = threading.Thread(target=make_conn, args = (q,qry))
     t.daemon = True
     t.start()
 
