@@ -1,0 +1,2 @@
+# clsConnBigQuery
+Connection BQ
