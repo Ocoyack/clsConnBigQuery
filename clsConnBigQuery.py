@@ -3,10 +3,12 @@ import threading
 import urllib2
 
 # Called by each thread
-def get_url(q, url):
-    q.put(urllib2.urlopen(url).read())
+def make_conn(q, url):
+    objConn = DataBaseBigQuery('config')
 
-theurls = ["http://google.com", "http://yahoo.com"]
+    q.put( objConn.get_data_bq )
+
+theurls = ["SELECT", "INSERT"]
 
 q = Queue.Queue()
 
